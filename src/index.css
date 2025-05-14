@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #0e4a86;
+  --primary-light: #2172c7;
+  --primary-dark: #093663;
+  --secondary: #222d44;
+  --secondary-light: #3a4865;
+  --accent: #ffb400;
+  --light-gray: #f8f9fa;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --text-gray: #6b7280;
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+p {
+  @apply text-justify;
+  text-align: justify;
+}
+
+/* Common Styles */
+.container {
+  @apply px-4 mx-auto max-w-7xl;
+}
+
+.btn-primary {
+  @apply inline-block px-6 py-3 text-white font-medium rounded-lg bg-blue-700 hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+}
+
+.btn-outline {
+  @apply inline-block px-6 py-3 text-blue-700 font-medium rounded-lg border-2 border-blue-700 hover:bg-blue-50 transition-all duration-300;
+}
+
+.btn-secondary {
+  @apply inline-block px-6 py-3 text-white font-medium rounded-lg bg-secondary hover:bg-secondary-light transition-all duration-300 shadow-lg hover:shadow-xl;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-center mb-12 relative;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute left-1/2 bottom-0 w-20 h-1 bg-blue-700 transform -translate-x-1/2 translate-y-6;
+}
+
+/* Hero Section Styles */
+.hero-slider {
+  @apply relative h-[80vh] overflow-hidden;
+}
+
+.hero-slide {
+  @apply h-full w-full relative flex items-center;
+}
+
+.hero-content {
+  @apply z-10 container relative text-white;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-50;
+}
+
+/* 3D animation elements */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card Styles */
+.product-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Feature box styles */
+.feature-box {
+  @apply bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-700 transition-all duration-300 hover:shadow-lg;
+}
+
+/* Custom animations */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Gallery styles */
+.gallery-filter {
+  @apply inline-block px-5 py-2 mx-1 mb-4 rounded-full text-gray-700 cursor-pointer transition-all duration-300;
+}
+
+.gallery-filter.active {
+  @apply bg-blue-700 text-white;
+}
+
+.gallery-item {
+  @apply relative overflow-hidden rounded-lg transition-all duration-500;
+}
+
+.gallery-item:hover img {
+  @apply transform scale-110;
+}
+
+.gallery-item-overlay {
+  @apply absolute inset-0 bg-blue-900 bg-opacity-0 flex items-center justify-center transition-all duration-300 opacity-0;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+  @apply bg-opacity-70 opacity-100;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300;
+}
+
+.form-label {
+  @apply block text-gray-700 font-medium mb-2;
+}
+
+/* Navbar */
+.navbar {
+  @apply fixed w-full top-0 left-0 z-50 transition-all duration-300;
+}
+
+.navbar-scrolled {
+  @apply bg-white shadow-md;
+}
+
+.navbar-scrolled .nav-link {
+  @apply text-gray-800;
+}
+
+.nav-link {
+  @apply px-4 py-2 text-white font-medium relative overflow-hidden;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  @apply w-full;
+}
+
+.navbar-scrolled .nav-link::after {
+  @apply bg-blue-700;
+}
+
+/* Additional animations */
+.scale-on-hover {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.rotate-on-hover {
+  @apply transition-transform duration-500 hover:rotate-3;
+}
+
+/* Custom cursor for 3D elements */
+.custom-cursor {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%230e4a86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>') 12 12, auto;
+}
