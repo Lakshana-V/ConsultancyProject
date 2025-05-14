@@ -33,6 +33,21 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://consultancyproject-2.onrender.com",
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
 
 mongoose.connect('mongodb+srv://kaviarasurp:kaviarasurp@cluster0.rxzqaan.mongodb.net/Quotation?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,

@@ -15,7 +15,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/products');
+      const res = await axios.get('https://consultancyproject-1.onrender.com/api/admin/products');
       console.log('Fetched products:', res.data);
       setProducts(res.data);
     } catch (err) {
@@ -25,7 +25,7 @@ const AdminDashboard: React.FC = () => {
 
   const deleteProduct = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/products/${id}`);
+      await axios.delete(`https://consultancyproject-1.onrender.com/api/admin/products/${id}`);
       setProducts(products.filter((product) => product._id !== id));
       console.log(`Product with ID ${id} deleted successfully.`);
     } catch (err) {
@@ -35,7 +35,7 @@ const AdminDashboard: React.FC = () => {
 
   const updateProduct = async (updatedProduct: Product) => {
     try {
-      await axios.put(`http://localhost:5000/api/admin/products/${updatedProduct._id}`, updatedProduct);
+      await axios.put(`https://consultancyproject-1.onrender.com/api/admin/products/${updatedProduct._id}`, updatedProduct);
       setProducts(
         products.map((product) =>
           product._id === updatedProduct._id ? updatedProduct : product

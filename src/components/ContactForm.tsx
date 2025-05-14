@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
       setFormStatus('submitting');
       setFormError(null);
 
-      const response = await fetch('http://localhost:5000/api/quotes', {
+      const response = await fetch('https://consultancyproject-1.onrender.com/api/quotes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
